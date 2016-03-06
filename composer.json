@@ -14,8 +14,9 @@
     "phpunit/phpunit": "*"
   },
   "autoload": {
-    "psr-4": {
-      "Pairs\\": "src"
-    }
+    "files": [
+        "src/Pairs.php",
+        "src/Lists.php"
+    ]
   }
 }

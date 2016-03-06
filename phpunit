@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+/*
+ * This file is part of PHPUnit.
+ *
+ * (c) Sebastian Bergmann <sebastian@phpunit.de>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+if (version_compare('5.6.0', PHP_VERSION, '>')) {
+    fwrite(
+        STDERR,
+        'This version of PHPUnit requires PHP 5.6; using the latest version of PHP is highly recommended.' . PHP_EOL
+    );
+
+    die(1);
+}
+
+if (!ini_get('date.timezone')) {
+    ini_set('date.timezone', 'UTC');
+}
+
+require __DIR__ . '/vendor/autoload.php';
+
+PHPUnit_TextUI_Command::main();
