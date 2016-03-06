@@ -1,0 +1,21 @@
+{
+  "name": "hexlet-components\\pairs",
+  "description": "",
+  "license": "MIT",
+  "keywords": ["pairs"],
+  "authors": [
+    {
+      "name": "Kirill Mokevnin",
+      "email": "mokevnin@gmail.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pairs\\": "src"
+    }
+  }
+}
