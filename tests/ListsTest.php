@@ -17,12 +17,6 @@ use function Lists\reduce;
 
 class ListsTest extends \PHPUnit_Framework_TestCase
 {
-    public function testPairs()
-    {
-        $pair = cons(1, 2);
-        $this->assertEquals(1, car($pair));
-        $this->assertEquals(2, cdr($pair));
-    }
 
     public function testLength()
     {
