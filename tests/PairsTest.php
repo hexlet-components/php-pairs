@@ -2,8 +2,6 @@
 
 namespace Pairs\tests;
 
-require_once 'Pairs.php';
-
 use function Pairs\cons;
 use function Pairs\car;
 use function Pairs\cdr;

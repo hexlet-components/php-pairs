@@ -1,5 +1,5 @@
 {
-  "name": "hexlet-components\\pairs",
+  "name": "hexlet\\pairs",
   "description": "",
   "license": "MIT",
   "keywords": ["pairs"],
@@ -11,11 +11,12 @@
   ],
   "require": {},
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "squizlabs/php_codesniffer": "2.*"
   },
   "autoload": {
-    "psr-4": {
-      "Pairs\\": "src"
-    }
+    "files": [
+      "src/Pairs.php"
+    ]
   }
 }
