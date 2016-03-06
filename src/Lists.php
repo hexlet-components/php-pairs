@@ -8,11 +8,10 @@ use function Pairs\toString;
 
 
 /**
- * применяет callable-функцию $func к списку $list
- * @method map
- * @param  callable $func функция
- * @param  callable $list список
- * @return [type]         [description]
+ * Applies callable function $func to list $list
+ * @param  callable $func function
+ * @param  callable $list list
+ * @return result list
  */
 function map(callable $func, callable $list) {
     $map = function ($items, $acc) use (&$map, $func) {
@@ -26,11 +25,10 @@ function map(callable $func, callable $list) {
 }
 
 /**
- * фильтрует список с помощью callable-функции
- * @method filter
- * @param  callable $func функция
- * @param  callable $list список
- * @return [type]         [description]
+ * Filters list $list using callable function $func
+ * @param  callable $func function
+ * @param  callable $list list
+ * @return result list
  */
 function filter(callable $func, callable $list) {
     $map = function ($func, $items) use (&$map) {
@@ -48,12 +46,11 @@ function filter(callable $func, callable $list) {
 }
 
 /**
- * сворачивает список с помощью callable-функции
- * @method reduce
- * @param  callable $func функция
- * @param  callable $list список
+ * Collapses the list $list using callable function $func
+ * @param  callable $func function
+ * @param  callable $list list
  * @param  mixed   $acc
- * @return [type]         [description]
+ * @return result
  */
 function reduce(callable $func, callable $list, $acc = null) {
     $iter = function ($items, $acc) use (&$iter, $func) {
@@ -64,11 +61,10 @@ function reduce(callable $func, callable $list, $acc = null) {
 }
 
 /**
- * соединяет два списка
- * @method append
+ * Concatenates two lists
  * @param  pair $list1
  * @param  pair $list2
- * @return новый список
+ * @return new list
  */
 function append(callable $list1, callable $list2)
 {
@@ -80,10 +76,9 @@ function append(callable $list1, callable $list2)
 }
 
 /**
- * переворачивает список
- * @method reverse
- * @param  callable $list список
- * @return перевернутый список
+ * Reverse list $list
+ * @param  callable $list list
+ * @return result
  */
 function reverse(callable $list) {
     $iter = function ($items, $acc) use (&$iter) {
@@ -94,10 +89,9 @@ function reverse(callable $list) {
 }
 
 /**
- * возвращает длинну списка
- * @method length
- * @param  callable $list список
- * @return integer        длинна списка
+ * Returns length of list
+ * @param  callable $list list
+ * @return integer  length
  */
 function length($list) {
     if ($list === null || !is_callable($list)) {
