@@ -33,7 +33,7 @@ function toString($list)
     $arr = [];
     $iter = function ($items) use (&$arr, &$iter) {
         if ($items != null) {
-            $arr[] = listToString(car($items));
+            $arr[] = toString(car($items));
             $iter(cdr($items));
         }
 
