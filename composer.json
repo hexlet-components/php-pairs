@@ -1,22 +1,23 @@
 {
-  "name": "hexlet\\pairs",
-  "description": "",
-  "license": "MIT",
-  "keywords": ["pairs"],
-  "authors": [
-    {
-      "name": "Kirill Mokevnin",
-      "email": "mokevnin@gmail.com"
+    "name": "hexlet\\pairs",
+    "description": "",
+    "license": "MIT",
+    "keywords": ["pairs"],
+    "authors": [
+        {
+            "name": "Kirill Mokevnin",
+            "email": "mokevnin@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "squizlabs/php_codesniffer": "2.*"
+    },
+    "autoload": {
+        "files": [
+            "src/Pairs.php",
+            "src/Lists.php"
+        ]
     }
-  ],
-  "require": {},
-  "require-dev": {
-    "phpunit/phpunit": "*",
-    "squizlabs/php_codesniffer": "2.*"
-  },
-  "autoload": {
-    "files": [
-      "src/Pairs.php"
-    ]
-  }
 }
