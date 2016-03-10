@@ -7,13 +7,20 @@ use function Pairs\car;
 use function Pairs\cdr;
 use function Pairs\toString;
 
+function l(...$elements)
+{
+    return array_reduce(array_reverse($elements), function ($acc, $item) {
+        return cons($item, $acc);
+    });
+}
+
 /**
  * Applies callable function $func to list $list
  * @param  callable $func function
  * @param  callable $list list
  * @return result list
  */
-function map(callable $func, callable $list)
+function map(callable $func, $list)
 {
     $map = function ($items, $acc) use (&$map, $func) {
         if (is_null($items)) {
@@ -31,7 +38,7 @@ function map(callable $func, callable $list)
  * @param  callable $list list
  * @return result list
  */
-function filter(callable $func, callable $list)
+function filter(callable $func, $list)
 {
     $map = function ($func, $items) use (&$map) {
         if ($items === null) {
@@ -54,7 +61,7 @@ function filter(callable $func, callable $list)
  * @param  mixed   $acc
  * @return result
  */
-function reduce(callable $func, callable $list, $acc = null)
+function reduce(callable $func, $list, $acc = null)
 {
     $iter = function ($items, $acc) use (&$iter, $func) {
         return is_null($items) ? $acc : $iter(cdr($items), $func(car($items), $acc));
@@ -69,7 +76,7 @@ function reduce(callable $func, callable $list, $acc = null)
  * @param  pair $list2
  * @return new list
  */
-function append(callable $list1, callable $list2)
+function append($list1, $list2)
 {
     if ($list1 === null) {
         return $list2;
@@ -83,7 +90,7 @@ function append(callable $list1, callable $list2)
  * @param  callable $list list
  * @return result
  */
-function reverse(callable $list)
+function reverse($list)
 {
     $iter = function ($items, $acc) use (&$iter) {
         return is_null($items) ? $acc : $iter(cdr($items), cons(car($items), $acc));
