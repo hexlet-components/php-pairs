@@ -10,6 +10,8 @@ function cons($x, $y)
                 return $x;
             case "cdr":
                 return $y;
+            default:
+                throw new \InvalidArgumentException("Invalid method $method.");
         }
     };
 }
