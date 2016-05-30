@@ -30,13 +30,13 @@ function toString($list)
         return $list;
     }
 
-    $iter = function ($items, array $acc) use (&$iter) {
+    $iter = function ($items, array $acc = []) use (&$iter) {
         if ($items == null) {
             return $acc;
         }
         return $iter(cdr($items), array_merge($acc, toString(car($items))));
     };
-    $arr = $iter($list, []);
+    $arr = $iter($list);
 
     return "(" . implode(", ", $arr) . ")";
 }
