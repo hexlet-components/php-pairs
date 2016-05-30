@@ -34,7 +34,7 @@ function toString($list)
         if ($items == null) {
             return $acc;
         }
-        return $iter(cdr($items), array_merge($acc, toString(car($items))));
+        return $iter(cdr($items), array_merge($acc, [toString(car($items))]));
     };
     $arr = $iter($list);
 
