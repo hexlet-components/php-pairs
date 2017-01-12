@@ -7,6 +7,11 @@ use function Pairs\car;
 use function Pairs\cdr;
 use function Pairs\toString;
 
+/**
+ * Creates new list with given $elements
+ * @param mixed[] $elements elements to add
+ * @return callable list
+ */
 function l(...$elements)
 {
     return array_reduce(array_reverse($elements), function ($acc, $item) {
@@ -18,7 +23,7 @@ function l(...$elements)
  * Applies callable function $func to list $list
  * @param  callable $func function
  * @param  callable $list list
- * @return result list
+ * @return callable list
  */
 function map(callable $func, $list)
 {
@@ -36,7 +41,7 @@ function map(callable $func, $list)
  * Filters list $list using callable function $func
  * @param  callable $func function
  * @param  callable $list list
- * @return result list
+ * @return callable list
  */
 function filter(callable $func, $list)
 {
@@ -59,7 +64,7 @@ function filter(callable $func, $list)
  * @param  callable $func function
  * @param  callable $list list
  * @param  mixed   $acc
- * @return result
+ * @return mixed
  */
 function reduce(callable $func, $list, $acc = null)
 {
@@ -74,7 +79,7 @@ function reduce(callable $func, $list, $acc = null)
  * Concatenates two lists
  * @param  pair $list1
  * @param  pair $list2
- * @return new list
+ * @return callable new list
  */
 function append($list1, $list2)
 {
@@ -88,7 +93,7 @@ function append($list1, $list2)
 /**
  * Reverse list $list
  * @param  callable $list list
- * @return result
+ * @return callable result
  */
 function reverse($list)
 {
