@@ -2,6 +2,11 @@
 
 namespace Pairs;
 
+/**
+ * @param mixed $x first value
+ * @param mixed $y second value
+ * @return callable pair
+ */
 function cons($x, $y)
 {
     return function ($method) use ($x, $y) {
