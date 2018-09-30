@@ -1,19 +1,21 @@
 <?php
 
-namespace Pairs\tests;
+namespace PhpPairs\tests;
 
-use function Pairs\cons;
-use function Pairs\car;
-use function Pairs\cdr;
-use function Pairs\toString;
-use function Lists\length;
-use function Lists\reverse;
-use function Lists\l;
-use function Lists\map;
-use function Lists\filter;
-use function Lists\reduce;
+use function PhpPairs\Pairs\cons;
+use function PhpPairs\Pairs\car;
+use function PhpPairs\Pairs\cdr;
+use function PhpPairs\Pairs\toString;
+use function PhpPairs\Lists\length;
+use function PhpPairs\Lists\reverse;
+use function PhpPairs\Lists\l;
+use function PhpPairs\Lists\map;
+use function PhpPairs\Lists\filter;
+use function PhpPairs\Lists\reduce;
 
-class ListsTest extends \PHPUnit_Framework_TestCase
+use PHPUnit\Framework\TestCase;
+
+class ListsTest extends TestCase
 {
 
     public function testL()

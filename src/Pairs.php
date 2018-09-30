@@ -1,6 +1,6 @@
 <?php
 
-namespace Pairs;
+namespace PhpPairs\Pairs;
 
 /**
  * Creates a pair with two values

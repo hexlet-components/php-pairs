@@ -1,11 +1,11 @@
 <?php
 
-namespace Lists;
+namespace PhpPairs\Lists;
 
-use function Pairs\cons;
-use function Pairs\car;
-use function Pairs\cdr;
-use function Pairs\toString;
+use function PhpPairs\Pairs\cons;
+use function PhpPairs\Pairs\car;
+use function PhpPairs\Pairs\cdr;
+use function PhpPairs\Pairs\toString;
 
 /**
  * Creates new list with given $elements
