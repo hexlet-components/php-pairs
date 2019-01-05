@@ -1,11 +1,8 @@
 install:
 	composer install
 
-autoload:
-	composer dump-autoload
-
 test:
-	composer exec phpunit tests
+	composer exec phpunit tests -v
 
 lint:
-	composer exec 'phpcs --standard=PSR2 src tests'
+	composer exec phpcs -- --standard=PSR12 src tests -v

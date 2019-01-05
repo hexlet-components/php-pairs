@@ -45,15 +45,15 @@ class ListsTest extends TestCase
     {
         $list = l(1, 2, 3);
         $expected = toString(l(3, 4, 5));
-        $map = map(function ($x) {
+        $map = map($list, function ($x) {
             return $x + 2;
-        }, $list);
+        });
         $this->assertEquals($expected, toString($map));
 
         $list2 = l();
-        $map = map(function ($x) {
+        $map = map($list2, function ($x) {
             return $x + 2;
-        }, $list2);
+        });
         $this->assertEquals(toString(l()), toString($map));
     }
 
@@ -61,18 +61,18 @@ class ListsTest extends TestCase
     {
         $list = l(2, 3, 4);
         $expected = toString(l(2, 4));
-        $filter = filter(function ($x) {
+        $filter = filter($list, function ($x) {
             return $x % 2 == 0;
-        }, $list);
+        });
 
         $this->assertEquals(2, length($filter));
         $this->assertEquals($expected, toString($filter));
 
         $list2 = l();
         $expected = toString(l());
-        $filtered = filter(function ($x) {
+        $filtered = filter($list2, function ($x) {
             return $x % 2 == 0;
-        }, $list2);
+        });
         $this->assertEquals($expected, toString($filtered));
     }
 
@@ -80,16 +80,16 @@ class ListsTest extends TestCase
     {
         $list = l(1, 2, 3);
         $expected = 6;
-        $reduced = reduce(function ($x, $acc) {
+        $reduced = reduce($list, function ($x, $acc) {
             return $x + $acc;
-        }, $list, 0);
+        }, 0);
         $this->assertEquals($expected, $reduced);
 
         $list2 = l();
         $expected = null;
-        $reduced2 = reduce(function ($x, $acc) {
+        $reduced2 = reduce($list2, function ($x, $acc) {
             return $x + $acc;
-        }, $list2);
+        });
         $this->assertEquals($expected, $reduced2);
     }
 }

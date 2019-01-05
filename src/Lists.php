@@ -21,11 +21,11 @@ function l(...$elements)
 
 /**
  * Applies callable function $func to list $list
- * @param  callable $func function
  * @param  callable $list list
+ * @param  callable $func function
  * @return callable list
  */
-function map(callable $func, $list)
+function map($list, callable $func)
 {
     $map = function ($items, $acc) use (&$map, $func) {
         if (is_null($items)) {
@@ -39,11 +39,11 @@ function map(callable $func, $list)
 
 /**
  * Filters list $list using callable function $func
- * @param  callable $func function
  * @param  callable $list list
+ * @param  callable $func function
  * @return callable list
  */
-function filter(callable $func, $list)
+function filter($list, callable $func)
 {
     $map = function ($func, $items) use (&$map) {
         if ($items === null) {
@@ -61,12 +61,12 @@ function filter(callable $func, $list)
 
 /**
  * Collapses the list $list using callable function $func
- * @param  callable $func function
  * @param  callable $list list
+ * @param  callable $func function
  * @param  mixed   $acc
  * @return mixed
  */
-function reduce(callable $func, $list, $acc = null)
+function reduce($list, callable $func, $acc = null)
 {
     $iter = function ($items, $acc) use (&$iter, $func) {
         return is_null($items) ? $acc : $iter(cdr($items), $func(car($items), $acc));
