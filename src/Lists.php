@@ -66,6 +66,17 @@ function filter($list, callable $func)
  * @param  mixed   $acc
  * @return mixed
  */
+function accumulate($list, callable $func, $acc = null) {
+    return reduce($list, $func, $acc);
+}
+
+/**
+ * Collapses the list $list using callable function $func
+ * @param  callable $list list
+ * @param  callable $func function
+ * @param  mixed   $acc
+ * @return mixed
+ */
 function reduce($list, callable $func, $acc = null)
 {
     $iter = function ($items, $acc) use (&$iter, $func) {
