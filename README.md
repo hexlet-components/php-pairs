@@ -1,12 +1,14 @@
 # php-pairs
 
+[![github action status](https://github.com/hexlet-components/php-pairs/workflows/master/badge.svg)](https://github.com/hexlet-components/php-pairs/actions)
+
+## Install
 
 ```sh
 $ composer require hexlet/pairs
 ```
 
-
-### Functions for working with Pairs
+## Functions for working with Pairs
 
 ```php
 <?php
@@ -17,7 +19,7 @@ use function PhpPairs\Pairs\cdr;
 use function PhpPairs\Pairs\toString;
 ```
 
-### Functions for working with Lists
+## Functions for working with Lists
 
 ```php
 <?php
@@ -29,7 +31,7 @@ use function PhpPairs\Lists\filter;
 use function PhpPairs\Lists\reduce;
 ```
 
-### Examples
+## Usage examples
 
 ```php
 <?php
