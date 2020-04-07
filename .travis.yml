@@ -1,9 +1,0 @@
-language: php
-php:
-  - '7.0'
-
-install:
-  - composer self-update
-  - make install
-
-script: make lint test
