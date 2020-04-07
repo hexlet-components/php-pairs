@@ -1,0 +1,24 @@
+name: master
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install
+      run: make install
+
+    - name: Check lint
+      run: make lint
+
+    - name: Execute tests
+      run: make test
