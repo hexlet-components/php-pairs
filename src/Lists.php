@@ -66,7 +66,8 @@ function filter($list, callable $func)
  * @param  mixed   $acc
  * @return mixed
  */
-function accumulate($list, callable $func, $acc = null) {
+function accumulate($list, callable $func, $acc = null)
+{
     return reduce($list, $func, $acc);
 }
 
