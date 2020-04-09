@@ -3,6 +3,10 @@
     "description": "Pairs implementation",
     "license": "MIT",
     "keywords": ["pairs"],
+    "scripts": {
+        "phpunit": "phpunit",
+        "phpcs": "phpcs"
+    },
     "authors": [
         {
             "name": "Kirill Mokevnin",
