@@ -39,7 +39,7 @@ use function PhpPairs\Lists\reduce;
 $pair = cons(1, 2);
 
 $one = \PhpPairs\Pairs\car($pair); // $one = 1;
-$two = \PhpPairs\Pairs\cdr($pair) // $two = 2;
+$two = \PhpPairs\Pairs\cdr($pair); // $two = 2;
 
 $list = cons(1, cons(2, cons(3, cons(4, cons(5, cons(6, null))))));
 $length = length($list); // $length = 6;
