@@ -4,18 +4,22 @@ namespace PhpPairs\Pairs;
 
 /**
  * Creates a pair with two values
- * @param mixed $x first value
- * @param mixed $y second value
+ * @param mixed $a first value
+ * @param mixed $b second value
  * @return callable pair
+ * @example
+ * $pair = cons(5, 'hello');
+ * @example
+ * $pair = cons(cons(1, null), 'world');
  */
-function cons($x, $y)
+function cons($a, $b)
 {
-    return function ($method) use ($x, $y) {
+    return function ($method) use ($a, $b) {
         switch ($method) {
             case "car":
-                return $x;
+                return $a;
             case "cdr":
-                return $y;
+                return $b;
             default:
                 throw new \InvalidArgumentException("Invalid method $method.");
         }
@@ -23,53 +27,76 @@ function cons($x, $y)
 }
 
 /**
- * Extracts first value from pair
- * @param callalble $pair
- * @return mixed
- */
-function car(callable $pair)
-{
-    return $pair("car");
-}
-
-/**
- * Extracts second value from pair
- * @param callalble $pair
- * @return mixed
- */
-function cdr(callable $pair)
-{
-    return $pair("cdr");
-}
-
-/**
- * Converts given list to string
- * @param callalble $list
- * @return string
- */
-function toString($list)
-{
-    if (!isPair($list)) {
-        return $list;
-    }
-
-    $iter = function ($items, array $acc = []) use (&$iter) {
-        if ($items == null) {
-            return $acc;
-        }
-        return $iter(cdr($items), array_merge($acc, [toString(car($items))]));
-    };
-    $arr = $iter($list);
-
-    return "(" . implode(", ", $arr) . ")";
-}
-
-/**
- * Checks whether given $pair is valid pair
+ * Check if something is pair
  * @param callable $pair
  * @return boolean
+ * @example
+ * $pair = cons(5, 'hello');
+ * isPair($pair); // true
+ * isPair(5); // false
  */
 function isPair($pair)
 {
     return is_callable($pair);
+}
+
+function checkPair($pair)
+{
+    if (!isPair($pair)) {
+        $value = is_array($pair) ? 'array' : (string) $pair;
+        throw new \Exception("Argument must be pair, but it was '{$value}'");
+    }
+}
+
+/**
+ * Get car (first element) from pair
+ * @param callable $pair
+ * @return mixed
+ */
+function car(callable $pair)
+{
+    checkPair($pair);
+    return $pair("car");
+}
+
+/**
+ * Get cdr (second element) from pair
+ * @param callable $pair
+ * @return mixed
+ */
+function cdr(callable $pair)
+{
+    checkPair($pair);
+    return $pair("cdr");
+}
+
+/**
+ * Convert pair to string (recursively)
+ * @param callable $pair
+ * @return string
+ * @example
+ * toString(cons('', 10)); // ('', 10)
+ */
+function toString($pair)
+{
+    checkPair($pair);
+    $rec = function ($p) use (&$rec) {
+        if (!isPair($p)) {
+            if ($p === null) {
+                return 'null';
+            }
+            if ($p === '') {
+                return "''";
+            }
+
+            return (string) $p;
+        }
+
+        $recLeft = $rec(car($p));
+        $recRight = $rec(cdr($p));
+
+        return "({$recLeft}, {$recRight})";
+    };
+
+    return $rec($pair);
 }
