@@ -1,14 +1,14 @@
 <?php
 
-namespace PhpPairs\Pairs\tests;
+namespace Php\Pairs\Pairs\tests;
 
 use PHPUnit\Framework\TestCase;
 
-use function PhpPairs\Pairs\cons;
-use function PhpPairs\Pairs\car;
-use function PhpPairs\Pairs\cdr;
-use function PhpPairs\Pairs\toString;
-use function PhpPairs\Pairs\checkPair;
+use function Php\Pairs\Pairs\cons;
+use function Php\Pairs\Pairs\car;
+use function Php\Pairs\Pairs\cdr;
+use function Php\Pairs\Pairs\toString;
+use function Php\Pairs\Pairs\checkPair;
 
 class PairsTest extends TestCase
 {
