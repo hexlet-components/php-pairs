@@ -9,10 +9,10 @@ Functions for working with Pairs.
 ```php
 <?php
 
-use function PhpPairs\Pairs\cons;
-use function PhpPairs\Pairs\car;
-use function PhpPairs\Pairs\cdr;
-use function PhpPairs\Pairs\toString;
+use function Php\Pairs\Pairs\cons;
+use function Php\Pairs\Pairs\car;
+use function Php\Pairs\Pairs\cdr;
+use function Php\Pairs\Pairs\toString;
 
 $pair = cons(1, 2);
 $one = car($pair); // $one = 1;
