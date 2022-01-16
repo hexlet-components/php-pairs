@@ -1,0 +1,30 @@
+name: PHP CI
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-versions: ['7.4', '8.1']
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up PHP ${{ matrix.php-versions }}
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+
+    - name: Install
+      run: make install
+
+    - name: Check lint
+      run: make lint
+
+    - name: Execute tests
+      run: make test
