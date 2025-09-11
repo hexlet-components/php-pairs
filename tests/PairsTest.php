@@ -12,7 +12,7 @@ use function Php\Pairs\Pairs\checkPair;
 
 class PairsTest extends TestCase
 {
-    public function testPairs()
+    public function testPairs(): void
     {
         $pair = cons(3, 4);
 
@@ -20,7 +20,7 @@ class PairsTest extends TestCase
         $this->assertEquals(4, cdr($pair));
     }
 
-    public function testToString()
+    public function testToString(): void
     {
         $pair1 = cons(3, cons(3, 2));
         $pair2 = cons(cons(3, 5), cons(1, null));
@@ -33,11 +33,11 @@ class PairsTest extends TestCase
         $this->assertEquals("('', -10)", toString($pair4));
     }
 
-    public function testCheckPair()
+    public function testCheckPair(): void
     {
-        $this->expectExceptionMessage("Argument must be pair, but it was '1'");
+        $this->expectExceptionMessage("Argument must be pair, but it was 'integer'");
         checkPair(1);
-        $this->expectExceptionMessage("Argument must be pair, but it was 'some string'");
+        $this->expectExceptionMessage("Argument must be pair, but it was 'string'");
         checkPair('some string');
         $this->expectExceptionMessage("Argument must be pair, but it was 'array'");
         checkPair([1, 2]);

@@ -2,17 +2,20 @@
 
 namespace Php\Pairs\Pairs;
 
+use Closure;
+use function is_callable;
+
 /**
  * Creates a pair with two values
  * @param mixed $a first value
  * @param mixed $b second value
- * @return callable pair
+ * @return Closure pair
  * @example
  * $pair = cons(5, 'hello');
  * @example
  * $pair = cons(cons(1, null), 'world');
  */
-function cons($a, $b)
+function cons($a, $b): Closure
 {
     return function ($method) use ($a, $b) {
         switch ($method) {
@@ -28,32 +31,37 @@ function cons($a, $b)
 
 /**
  * Check if something is pair
- * @param callable $pair
+ * @param Closure $pair
  * @return boolean
  * @example
  * $pair = cons(5, 'hello');
  * isPair($pair); // true
  * isPair(5); // false
  */
-function isPair($pair)
+function isPair(mixed $pair): bool
 {
-    return is_callable($pair);
+    return $pair instanceof Closure;
 }
 
-function checkPair($pair)
+/**
+ * @param mixed $pair
+ * @return void
+ * @throws \Exception
+ */
+function checkPair(mixed $pair): void
 {
     if (!isPair($pair)) {
-        $value = is_array($pair) ? 'array' : (string) $pair;
+        $value = gettype($pair);
         throw new \Exception("Argument must be pair, but it was '{$value}'");
     }
 }
 
 /**
  * Get car (first element) from pair
- * @param callable $pair
+ * @param Closure $pair
  * @return mixed
  */
-function car(callable $pair)
+function car(Closure $pair): mixed
 {
     checkPair($pair);
     return $pair("car");
@@ -61,10 +69,10 @@ function car(callable $pair)
 
 /**
  * Get cdr (second element) from pair
- * @param callable $pair
+ * @param Closure $pair
  * @return mixed
  */
-function cdr(callable $pair)
+function cdr(Closure $pair): mixed
 {
     checkPair($pair);
     return $pair("cdr");
@@ -72,15 +80,15 @@ function cdr(callable $pair)
 
 /**
  * Convert pair to string (recursively)
- * @param callable $pair
+ * @param Closure $pair
  * @return string
  * @example
  * toString(cons('', 10)); // ('', 10)
  */
-function toString($pair)
+function toString(mixed $pair): string
 {
     checkPair($pair);
-    $rec = function ($p) use (&$rec) {
+    $iter = function ($p) use (&$iter) {
         if (!isPair($p)) {
             if ($p === null) {
                 return 'null';
@@ -92,11 +100,11 @@ function toString($pair)
             return (string) $p;
         }
 
-        $recLeft = $rec(car($p));
-        $recRight = $rec(cdr($p));
+        $recLeft = $iter(car($p));
+        $recRight = $iter(cdr($p));
 
         return "({$recLeft}, {$recRight})";
     };
 
-    return $rec($pair);
+    return $iter($pair);
 }
