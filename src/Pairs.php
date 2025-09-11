@@ -3,7 +3,6 @@
 namespace Php\Pairs\Pairs;
 
 use Closure;
-use function is_callable;
 
 /**
  * Creates a pair with two values

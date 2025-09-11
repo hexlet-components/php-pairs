@@ -5,4 +5,7 @@ test:
 	composer phpunit tests
 
 lint:
-	composer phpcs src tests
+	composer exec phpcs
+
+lint-fix:
+	composer exec phpcbf
