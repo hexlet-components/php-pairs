@@ -2,7 +2,7 @@ install:
 	composer install
 
 test:
-	composer phpunit tests
+	composer exec phpunit -- tests
 
 lint:
 	composer exec phpcs
