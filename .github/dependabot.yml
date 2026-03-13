@@ -8,8 +8,10 @@ updates:
     labels: [dependencies, automated, actions]
     groups:
       actions-minor-patch:
+        patterns: ["*"]
         update-types: [minor, patch]
       actions-major:
+        patterns: ["*"]
         update-types: [major]
   # PHP dev
   - package-ecosystem: composer
@@ -21,8 +23,10 @@ updates:
       - dependency-type: development
     groups:
       composer-dev-minor-patch:
+        patterns: ["*"]
         update-types: [minor, patch]
       composer-dev-major:
+        patterns: ["*"]
         update-types: [major]
   # PHP prod
   - package-ecosystem: composer
@@ -34,4 +38,5 @@ updates:
       - dependency-type: production
     groups:
       composer-runtime-minor-patch:
+        patterns: ["*"]
         update-types: [minor, patch]
