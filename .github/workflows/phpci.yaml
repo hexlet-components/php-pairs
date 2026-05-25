@@ -11,15 +11,13 @@ jobs:
     strategy:
       matrix:
         php-versions:
-          - '8.3'
           - '8.4'
-          - '8.5'
 
     steps:
     - uses: actions/checkout@v6
 
     - name: Set up PHP ${{ matrix.php-versions }}
-      uses: shivammathur/setup-php@v2
+      uses: shivammathur/setup-php@v2.37.0
       with:
         php-version: ${{ matrix.php-versions }}
 
