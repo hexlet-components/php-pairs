@@ -1,0 +1,19 @@
+name: Release Please
+
+# Шага публикации здесь нет намеренно: packagist забирает версию вебхуком по
+# тегу, поэтому достаточно, чтобы release-please тег поставил. Проверено: у всех
+# шести библиотек на packagist включён auto-update.
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v5
