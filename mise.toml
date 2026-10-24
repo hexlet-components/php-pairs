@@ -1,0 +1,24 @@
+[tools]
+betterleaks = "latest"
+hk = "2"
+jactionlint = "latest"
+lychee = "latest"
+mago = "latest"
+node = "26"
+"npm:@commitlint/cli" = "latest"
+"npm:@commitlint/config-conventional" = "latest"
+pkl = "latest"
+rumdl = "latest"
+typos = "latest"
+
+[tasks.setup]
+description = "Поставить зависимости и git-хуки"
+run = ["hk install"]
+
+[tasks.check]
+description = "Все проверки, тот же набор, что гоняет CI"
+run = "hk check --all"
+
+[tasks.fix]
+description = "Применить автоисправления"
+run = "hk fix --all"

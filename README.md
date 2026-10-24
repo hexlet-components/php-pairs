@@ -1,6 +1,6 @@
 # php-pairs
 
-[![github action status](https://github.com/hexlet-components/php-pairs/workflows/PHP%20CI/badge.svg)](../../actions)
+[![github action status](https://github.com/hexlet-components/php-pairs/workflows/PHP%20CI/badge.svg)](https://github.com/hexlet-components/php-pairs/actions)
 
 Functions for working with Pairs.
 
