@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Php\Pairs\Pairs;
 
 use Closure;
@@ -18,12 +20,12 @@ function cons($a, $b): Closure
 {
     return function ($method) use ($a, $b) {
         switch ($method) {
-            case "car":
+            case 'car':
                 return $a;
-            case "cdr":
+            case 'cdr':
                 return $b;
             default:
-                throw new \InvalidArgumentException("Invalid method $method.");
+                throw new \InvalidArgumentException("Invalid method {$method}.");
         }
     };
 }
@@ -63,7 +65,7 @@ function checkPair(mixed $pair): void
 function car(Closure $pair): mixed
 {
     checkPair($pair);
-    return $pair("car");
+    return $pair('car');
 }
 
 /**
@@ -74,7 +76,7 @@ function car(Closure $pair): mixed
 function cdr(Closure $pair): mixed
 {
     checkPair($pair);
-    return $pair("cdr");
+    return $pair('cdr');
 }
 
 /**

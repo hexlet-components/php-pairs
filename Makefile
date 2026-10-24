@@ -5,7 +5,8 @@ test:
 	composer exec phpunit -- tests
 
 lint:
-	composer exec phpcs
+	mago lint
+	mago fmt --check
 
 lint-fix:
-	composer exec phpcbf
+	mago lint --fix --format-after-fix
