@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/hexlet-components/php-pairs/compare/v2.0.0...v2.0.1) (2026-10-24)
+
+
+### Miscellaneous Chores
+
+* **guardrails:** hk, commitlint, typos, rumdl, lychee, betterleaks, osv-scanner ([23b9efa](https://github.com/hexlet-components/php-pairs/commit/23b9efaec3d4b14c52454c771d6fc16e41290339))
+
 ## [2.0.0](https://github.com/hexlet-components/php-pairs/compare/v1.1.0...v2.0.0) (2026-08-18)
 
 
